@@ -36,98 +36,105 @@ extern int f_a20;
 	fex
 	
 [gpio_para]
-	gpio_used = 21
-	gpio_num = 4
-	;pin rezerved onboard hardware
-	gpio_pin_1 = port:PH20<1><default><default><1>
-	gpio_pin_2  = port:PH10<0><default><default><0>
+gpio_used = 1
+gpio_num = 21
+;pin rezerved onboard hardware
+gpio_pin_1 = port:PH20<1><default><default><1>
+gpio_pin_2  = port:PH10<0><default><default><0>
 	
-	;CN8 pin
-	gpio_pin_2 = port:PC19<1><default><default><default>
-	gpio_pin_3 = port:PC21<1><default><default><default>
-	gpio_pin_4 = port:PC20<1><default><default><default>
-	gpio_pin_5 = port:PC22<1><default><default><default>
-	gpio_pin_6 = port:PB14<1><default><default><default>
-	gpio_pin_7 = port:PB16<1><default><default><default>
-	gpio_pin_8 = port:PB15<1><default><default><default>
-	gpio_pin_9 = port:PB17<1><default><default><default>
-	gpio_pin_10 = port:PI20<1><default><default><default>
-	gpio_pin_11 = port:PI14<1><default><default><default>
-	gpio_pin_12 = port:PI21<1><default><default><default>
-	gpio_pin_13 = port:PI15<1><default><default><default>
-	gpio_pin_14 = port:PI03<1><default><default><default>
-	gpio_pin_15 = port:PB03<1><default><default><default>
-	gpio_pin_16 = port:PB02<1><default><default><default>
-	gpio_pin_17 = port:PB18<1><default><default><default>
-	gpio_pin_18 = port:PB19<1><default><default><default>
+;CN8 pin
+gpio_pin_3 = port:PC19<1><default><default><default>
+gpio_pin_4 = port:PC21<1><default><default><default>
+gpio_pin_5 = port:PC20<1><default><default><default>
+gpio_pin_6 = port:PC22<1><default><default><default>
+gpio_pin_7 = port:PB14<1><default><default><default>
+gpio_pin_8 = port:PB16<1><default><default><default>
+gpio_pin_9 = port:PB15<1><default><default><default>
+gpio_pin_10 = port:PB17<1><default><default><default>
+gpio_pin_11 = port:PI20<1><default><default><default>
+gpio_pin_12 = port:PI14<1><default><default><default>
+gpio_pin_13 = port:PI21<1><default><default><default>
+gpio_pin_14 = port:PI15<1><default><default><default>
+gpio_pin_15 = port:PI03<1><default><default><default>
+gpio_pin_16 = port:PB03<1><default><default><default>
+gpio_pin_17 = port:PB02<1><default><default><default>
+gpio_pin_18 = port:PB18<1><default><default><default>
+gpio_pin_19 = port:PB19<1><default><default><default>
 	
-	;pin rezerved BT hardware
-	gpio_pin_68 = port:PH18<0><default><default><0>
-	gpio_pin_69 = port:PH24<0><default><default><0>	
+;pin rezerved BT hardware
+gpio_pin_68 = port:PH18<0><default><default><0>
+gpio_pin_69 = port:PH24<0><default><default><0>	
 	
 */
-const int physToGpio_BP [64] =		//BOARD MODE
-{
-	-1, // 0
-	-1, -1, //1, 2
-	-1, -1, //3, 4
-	83, 85, //5, 6
-	84, 86, //7, 8
-	46, 48, //9, 10
-	47, 49, //11, 12
-	-1, -1, //13, 14
-	276, 270, //15, 16
-	277, 271, //17, 18
-	259, 35, //19, 20
-	34, -1, //21, 22
-	50, -1, //23, 24
-	51, -1, //25, 26
-	-1, -1, //27, 28
-	-1, -1, //29, 30
-	-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, //31-> 40
-	-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, //41-> 55
-	-1, -1, -1, -1, -1, -1, -1, -1 // 56-> 63
-} ;
-const int pinTobcm_BP [64] =	//BCM MODE
-{
-	-1,-1, //skip GPIO0,1
-	83,85, //map to BCM GPIO2,3
-	84,86, //map to BCM GPIO4,5
-	46,48, //map to BCM GPIO6,7
-	47,49, //map to BCM GPIO8,9
-	276,270, //map to BCM GPIO10,11
-	277,271, //map to BCM GPIO12,13
-	259,35, //map to BCM GPIO14,15
-	34,50, //map to BCM GPIO16,17
-	51,-1, //map to BCM GPIO18,19
-	-1, -1, -1, -1, -1,-1, -1,-1, // 20... 27
-	-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, // 28... 43
-	-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, //44... 59
-	-1, -1, -1, -1 // ...63
-} ;
-const int physToGpioR3 [64] =//head num map to BCMpin
-{
-	-1, // 0
-	-1, -1, //1, 2
-	-1, -1, //3, 4
-	2, 3, //5, 6
-	4, 5, //7, 8
-	6, 7, //9, 10
-	8, 9, //11, 12
-	-1, -1, //13, 14
-	10, 11, //15, 16
-	12, 13, //17, 18
-	14, 15, //19, 20
-	16, -1, //21, 22
-	17, -1, //23, 24
-	18, -1, //25, 26
-	-1, -1, //27, 28
-	-1, -1, //29, 30
-	-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, //31-> 40
-	-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, //41-> 55
-	-1, -1, -1, -1, -1, -1, -1, -1 // 56-> 63
-} ;
 
+const int physToGpio_BP [64] =	//BOARD MODE
+{	
+        -1, 		// 0
+        -1, -1, 	// 1, 2
+        -1, -1, 	// 3, 4
+        83, 85, 	// 5, 6
+        84, 86, 	// 7, 8
+        46, 48, 	// 9, 10
+        47, 49, 	// 11, 12
+        -1, -1, 	// 13, 14
+        276, 270, 	// 15, 16
+        277, 271, 	// 17, 18
+        259, 35, 	// 19, 20
+        34, -1, 	// 21, 22
+        50, -1, 	// 23, 24
+        51, -1, 	// 25, 26
+        -1, -1, 	// 27-> 28
+        -1, -1, 	// 29-> 30
+        -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,	// 31-> 40
+        -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,	// 41-> 55
+        -1, -1, -1, -1, -1, -1, -1, -1	// 56-> 63
+};	
+
+const int pinTobcm_BP [64] =	//BCM MODE
+{	
+        -1, 		//GPIO0
+        -1, -1, 	//GPIO1,2
+        83, 85, 	//GPIO3,4
+        84, 86, 	//GPIO5,6
+        46, 48, 	//GPIO7,8
+        47, 49, 	//GPIO9,10
+        276, 270, 	//GPIO11,12
+        277, 271, 	//GPIO13,14
+        259, 35, 	//GPIO15,16
+        34, 50, 	//GPIO17,18
+        51, -1, 	//GPIO19,20
+        -1, -1, 	// 21-> 22
+        -1, -1, 	// 23-> 24
+        -1, -1, 	// 25-> 26
+        -1, -1, 	// 27-> 28
+        -1, -1, 	// 29-> 30
+        -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,	// 31-> 40
+        -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,	// 41-> 55
+        -1, -1, -1, -1, -1, -1, -1, -1	// 56-> 63
+};	
+
+const int physToGpioR3 [64] =	//head num map to BCMpin
+{	
+        -1, 		// 0
+        -1, -1, 	// 1, 2
+        -1, -1, 	// 3, 4
+        3, 4, 		// 5, 6
+        5, 6, 		// 7, 8
+        7, 8, 		// 9, 10
+        9, 10, 		// 11, 12
+        -1, -1, 	// 13, 14
+        11, 12, 	// 15, 16
+        13, 14, 	// 17, 18
+        15, 16, 	// 19, 20
+        17, -1, 	// 21, 22
+        18, -1, 	// 23, 24
+        19, -1, 	// 25, 26
+        -1, -1, 	// 27-> 28
+        -1, -1, 	// 29-> 30
+        -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,	// 31-> 40
+        -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,	// 41-> 55
+        -1, -1, -1, -1, -1, -1, -1, -1	// 56-> 63
+};	
 
 int check_gpio_priv(void)
 {
