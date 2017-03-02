@@ -40,8 +40,8 @@ import RPi.GPIO as GPIO
 import time
  
 # Define GPIO to LCD mapping
-LCD_RS = 9
-LCD_E  = 11
+LCD_RS = 16
+LCD_E  = 18
 LCD_D4 = 15
 LCD_D5 = 17
 LCD_D6 = 19
@@ -71,12 +71,12 @@ def main():
   GPIO.setup(LCD_D5, GPIO.OUT) # DB5
   GPIO.setup(LCD_D6, GPIO.OUT) # DB6
   GPIO.setup(LCD_D7, GPIO.OUT) # DB7
- 
+
   # Initialise display
   lcd_init()
- 
+
   while True:
- 
+
     # Send some test
     lcd_string("Cubietruck",LCD_LINE_1)
     lcd_string("16x2 LCD Test",LCD_LINE_2)

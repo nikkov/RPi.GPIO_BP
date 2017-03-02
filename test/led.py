@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 import RPi.GPIO as GPIO
 import time
-PIN_NUM = 7
+PIN_NUM = 16
 
-GPIO.setmode(GPIO.BCM)
-#GPIO.setmode(GPIO.BOARD)
+#GPIO.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.BOARD)
 GPIO.setup(PIN_NUM,GPIO.OUT)
 while True:
 
